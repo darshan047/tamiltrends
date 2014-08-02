@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Tamil Trends | Home :: TamilTrends</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="assets/css/nav.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic+SC' rel='stylesheet' type='text/css'> -->
+	<script type="text/javascript" src="assets/js/vendor/jquery.js"></script>
+	<script type="text/javascript" src="./assets/js/vendor/underscore.js"></script>
+	<script type="text/javascript" src="./assets/js/vendor/backbone.js"></script>
+	<script type="text/javascript" src="./assets/js/vendor/backbone.paginator.js"></script>
+	<script type="text/javascript" src="./assets/js/vendor/backbone.marionette.js"></script>
+	<script type="text/javascript" src="assets/js/vendor/login.js"></script>
+	<script type="text/javascript" src="assets/js/vendor/Chart.js"></script>
+	<script type="text/javascript" src="assets/js/vendor/jquery.easing.js"></script>
+	<script type="text/javascript" src="assets/js/vendor/jquery.ulslide.js"></script>
+	<script type="text/javascript" src="assets/js/vendor/jquery.selectric.js"></script>
+	<script type="text/javascript" src="assets/js/vendor/spin.js"></script>
+	<script type="text/javascript" src="assets/js/vendor/jquery.spin.js"></script>
+	<script type="text/javascript" src="assets/js/vendor/jquery.pagination.js"></script>
+	<!----Calender -------->
+	<link rel="stylesheet" href="assets/css/clndr.css" type="text/css" />
+	<script src="assets/js/vendor/moment-2.2.1.js"></script>
+	<script src="assets/js/vendor/clndr.js"></script>
+	<script src="assets/js/vendor/site.js"></script>
+	<!----End Calender -------->
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="header" id="header-region"></div>
+	</div>
+	<div class="main">
+		<div class="wrap">
+			<div class="column_full" id = "main-region"/>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div id="copy-right-region" class="copy-right">
+	</div>
+	<!----Templates----->
+	<script type="text/template" id="header-link">
+		<a href = "#"> <i> <img src = "assets/images/<%=icon%>.png" alt = "" /> </i><%=name%></a>
+	</script>
+	<script type="text/template" id="header-template">
+			<div class="logo">
+				<a href="/">
+						<img src="assets/images/logo.png" alt="tamil trends logo">
+				</a>
+			</div>
+			<div class="menu">
+				<a class="toggleMenu" href="#">
+					<img src="assets/images/nav.png" alt="" />
+				</a>
+				<ul class="nav">
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="profile_details">
+				<div id="playlistContainer">
+					<select>
+					</select>
+				</div>
+			</div>
+			<div class="clear"></div>
+	</script>
+	<script type="text/template" id="videos-layout">
+	<div id="filter-region"></div>
+	<div id="video-region"></div>
+	<div id="pagination-region"></div>
+	</script>
+	<script type="text/template" id="video-item-template">
+		<div class="profile_picture">
+			<a href="">
+				<img src=<%=thumbnail%> alt="" />
+			</a>
+			<div class="profile_picture_name">
+				<p><%=title%></p>
+			</div>
+			<span>
+				<a href="#">
+					<img src="assets/images/follow_user.png" alt="" />
+				</a>
+			</span>
+		</div>
+		<div class="articles_list">
+			<ul>
+				<li>
+					<a href="#" class="red">
+						<img src="assets/images/comments.png" alt="" />24</a>
+				</li>
+				<li>
+					<a href="#" class="purple">
+						<img src="assets/images/views.png" alt="" />145</a>
+				</li>
+				<li>
+					<a href="#" class="yellow">
+						<img src="assets/images/likes.png" alt="" />46</a>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</script>
+	<script type="text/template" id="video-player-template">
+	<div class="video_player">
+			<iframe width="853" height="480" src="//www.youtube.com/embed/<%=_id%>?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+			<div class="profile_picture_name">
+				<p>Karthik sings Om Sivoham</p>
+			</div>
+			<span>
+				<a href="#">
+					<img src="assets/images/follow_user.png" alt="">
+				</a>
+			</span>
+		</div>
+		<div class="articles_list">
+			<ul>
+				<li>
+					<a href="#" class="red">
+						<img src="assets/images/comments.png" alt="">24</a>
+				</li>
+				<li>
+					<a href="#" class="purple">
+						<img src="assets/images/views.png" alt="">145</a>
+				</li>
+				<li>
+					<a href="#" class="yellow">
+						<img src="assets/images/likes.png" alt="">46</a>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</script>
+	<script type="text/template" id="copy-right-view">
+	© 2013 Designed by GraphicBurger • Template by Darshan
+	</script>
+	<!----End Templates----->
+	<!----App -------->
+	<script src="assets/js/config/backbone/sync.js"></script>
+
+	<script src="assets/js/backbone/app.js"></script>
+	<script src="assets/js/backbone/lib/controllers/application_controller.js"></script>
+	<script src="assets/js/backbone/lib/components/loading/loading_controller.js"></script>
+	<script src="assets/js/backbone/lib/components/loading/loading_view.js"></script>
+	<script src="assets/js/backbone/lib/utilities/fetch.js"></script>
+	<script src="assets/js/backbone/entities/header.js"></script>
+	<script src="assets/js/backbone/entities/videos.js"></script>
+	<script src="assets/js/backbone/entities/playlists.js"></script>
+	<script src="assets/js/backbone/apps/header/header_app.js"></script>
+	<script src="assets/js/backbone/apps/header/list/list_view.js"></script>
+	<script src="assets/js/backbone/apps/header/list/list_controller.js"></script>
+	<script src="assets/js/backbone/apps/copy_right/show/show_view.js"></script>
+	<script src="assets/js/backbone/apps/copy_right/show/show_controller.js"></script>
+	<script src="assets/js/backbone/apps/video/video_app.js"></script>
+	<script src="assets/js/backbone/apps/video/list/list_view.js"></script>
+	<script src="assets/js/backbone/apps/video/list/list_controller.js"></script>
+	<script src="assets/js/backbone/apps/video/show/show_view.js"></script>
+	<script src="assets/js/backbone/apps/video/show/show_controller.js"></script>
+	<script type="text/javascript">
+		console.log("start app");
+		TamilTrends.start();
+	</script>
+	<!----End App -------->
+	<script type="text/javascript" src="assets/js/vendor/responsive-nav.js"></script>
+</body>
+
+</html>
